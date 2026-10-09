@@ -1,0 +1,28 @@
+[project]
+name = "nanochess"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Rob Davidson", email = "your-email@example.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "bulletchess>=0.4.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "requests>=2.34.2",
+    "torch>=2.14.1",
+    "tqdm>=4.70.1",
+    "typer>=0.27.3",
+    "zstandard>=0.25.0",
+]
+
+[project.scripts]
+nanochess = "nanochess.cli:app"
+nc = "nanochess.cli:app"
+
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
