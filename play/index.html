@@ -4,11 +4,12 @@
   <head>
     <style>
       :root {
-        /* Four-tone graphite palette for the pixel pieces. */
+        /* Graphite palette with a muted steel-blue highlight. */
         --page-color: #23242a;
         --frame-color: #454752;
         --square-light: #c8ccd4;
         --square-dark: #858b98;
+        --accent-color: #526b9a;
       }
 
       chess-board::part(board) {
@@ -40,6 +41,7 @@
         width: min(90vw, 85vh, 700px);
         --light-color: var(--square-light);
         --dark-color: var(--square-dark);
+        --highlight-color: var(--accent-color);
       "
       position="start"
       piece-theme="https://raw.githubusercontent.com/lichess-org/lila/master/public/piece/pixel/{piece}.svg"
