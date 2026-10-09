@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html>
+  <head>
+    <style>
+      :root {
+        /* Four-tone graphite palette for the pixel pieces. */
+        --page-color: #23242a;
+        --frame-color: #454752;
+        --square-light: #c8ccd4;
+        --square-dark: #858b98;
+      }
+
+      chess-board::part(board) {
+        border-radius: 5px;
+        overflow: hidden;
+        border: 10px solid var(--frame-color);
+      }
+
+      chess-board::part(piece),
+      chess-board::part(dragged-piece) {
+        scale: 0.7;
+      }
+    </style>
+  </head>
+
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--page-color);
+    "
+  >
+    <chess-board
+      style="
+        width: min(90vw, 85vh, 700px);
+        --light-color: var(--square-light);
+        --dark-color: var(--square-dark);
+      "
+      position="start"
+      piece-theme="https://raw.githubusercontent.com/lichess-org/lila/master/public/piece/pixel/{piece}.svg"
+      draggable-pieces
+      hide-notation
+    ></chess-board>
+
+    <script type="module">
+      import "https://unpkg.com/chessboard-element?module";
+      import { Chess } from "https://cdn.jsdelivr.net/npm/chess.js@1.4.0/+esm";
+
+      const game = new Chess();
+      const board = document.querySelector("chess-board");
+
+      board.addEventListener("drop", ({ detail }) => {
+        try {
+          game.move({
+            from: detail.source,
+            to: detail.target,
+            promotion: "q"
+          });
+        } catch {
+          detail.setAction("snapback");
+        }
+      });
+
+      board.addEventListener("snap-end", () => {
+        board.setPosition(game.fen());
+      });
+    </script>
+  </body>
+</html>
