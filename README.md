@@ -3,11 +3,6 @@
     <img src="img/Icon.png" alt="NanoChess" width="700" />
   </a>
 </h1>
-
-<p align="center">
-  <i>Train a language model to play chess.</i>
-</p>
-
 ---
 
 <div align="center">
