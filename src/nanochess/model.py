@@ -43,7 +43,7 @@ class Block(nn.Module):
         return x
 
 
-class GPT(nn.Module):
+class NanoChess(nn.Module):
     def __init__(self, config):
         super().__init__()
 
@@ -67,8 +67,8 @@ class GPT(nn.Module):
 
 
 if __name__ == "__main__":
-    config = Config(C=768, V=1968, L=200, H=12, N=12)
-    model = GPT(config)
+    config = Config(C=768, V=1987, L=200, H=12, N=12)
+    model = NanoChess(config)
     tokens = torch.tensor([[12, 45, 83, 21]])
     logits = model(tokens)
     print(logits.shape)
