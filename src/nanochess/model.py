@@ -56,7 +56,9 @@ class NanoChess(nn.Module):
 
         self.lm_head.weight = self.wte.weight
 
-        # Scale the embeddings, including the shared output weights, once at initialization.
+        # nn.Embedding initializes weights from N(0, 1).
+        # With tied output weights, this makes initial predictions overconfident.
+        # Shrink the token and position embeddings to reduce the initial scale.
         with torch.no_grad():
             self.wte.weight.mul_(0.02)
             self.wpe.weight.mul_(0.02)
