@@ -1,4 +1,5 @@
 import pickle
+import time
 
 import torch
 from torch.nn import functional as F
@@ -102,11 +103,14 @@ def train_model(
     )
 
     model.train()
+    start_time = time.perf_counter()
+    tokens_seen = 0
 
     for epoch in range(num_epochs):
         for step, (x_train, y_train) in enumerate(train_loader):
             x_train = x_train[:, : config.L].to(device)
             y_train = y_train[:, : config.L].to(device)
+            tokens_seen += (y_train != -100).sum().item()
 
             optimizer.zero_grad(set_to_none=True)
 
@@ -122,7 +126,8 @@ def train_model(
             scheduler.step()
 
             if step % 1000 == 0:
-                print(f"epoch {epoch + 1} | step {step} | loss {loss.item():.4f}")
+                tok_per_sec = tokens_seen / (time.perf_counter() - start_time)
+                print(f"epoch {epoch + 1} | step {step} | loss {loss.item():.4f} | {tok_per_sec:.0f} tok/s")
 
         val_loss = validate(model, val_loader, device, config.L)
         print(f"epoch {epoch + 1} | val loss {val_loss:.4f}")
