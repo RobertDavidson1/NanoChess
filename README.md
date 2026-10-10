@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://robertdavidson1.github.io/NanoChess/play/">
-    <img src="img/Icon.png" alt="NanoChess" width="700" />
+    <img src="img/Icon.png" alt="NanoChess" width="800" />
   </a>
 </h1>
 
