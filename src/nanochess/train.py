@@ -125,7 +125,7 @@ def train_model(
             optimizer.step()
             scheduler.step()
 
-            if step % 1000 == 0:
+            if step % 200 == 0:
                 tok_per_sec = tokens_seen / (time.perf_counter() - start_time)
                 print(f"epoch {epoch + 1} | step {step} | loss {loss.item():.4f} | {tok_per_sec:.0f} tok/s")
 
