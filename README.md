@@ -11,31 +11,10 @@ NanoChess is an experiment in teaching a language model to play chess. Instead o
 
 (WIP) Once trained, the model will be exported to ONNX so the browser can run inference entirely client-side. You can try the chessboard [here](https://robertdavidson1.github.io/NanoChess/play/).
 
-### Project structure
+### Contents
 
-```text
-NanoChess/
-├── play/                         # Static browser chessboard
-│   └── index.html                # Board UI, styling, and chess rules
-├── src/nanochess/                # Python package
-│   ├── cli.py                    # `nc fetch`, `nc parse`, and `nc train` commands
-│   ├── dataset.py                # PyTorch dataset, offsets, and DataLoaders
-│   ├── fetch.py                  # Downloads Lichess game dump
-│   ├── model.py                  # GPT-style transformer model
-│   ├── parse.py                  # Parses PGN games into token data
-│   ├── tokenize.py               # Maps vocabulary tokens and creates game examples
-│   └── train.py                  # Training entry point (currently WIP)
-├── data/
-│   ├── vocab.txt                 # Move and metadata vocabulary
-│   ├── raw/                      # Downloaded PGN dumps (ignored by Git)
-│   └── processed/                # Token files, offsets, and metadata
-├── img/                          # README and web artwork
-│   ├── Icon.png                  # NanoChess logo
-│   └── Web.png                   # Chessboard preview
-├── pyproject.toml                # Project metadata and dependencies
-├── uv.lock                       # Locked dependency versions
-└── README.md                     # Project documentation
-```
+- [Getting started](#getting-started)
+- [Project structure](#project-structure)
 
 ### Getting started
 
@@ -68,4 +47,30 @@ nc parse
 # 8. Export the model to onnx
 # nc export
 
+```
+
+### Project structure
+
+```text
+NanoChess/
+├── play/                         # Static browser chessboard
+│   └── index.html                # Board UI, styling, and chess rules
+├── src/nanochess/                # Python package
+│   ├── cli.py                    # `nc fetch`, `nc parse`, and `nc train` commands
+│   ├── dataset.py                # PyTorch dataset, offsets, and DataLoaders
+│   ├── fetch.py                  # Downloads Lichess game dump
+│   ├── model.py                  # GPT-style transformer model
+│   ├── parse.py                  # Parses PGN games into token data
+│   ├── tokenize.py               # Maps vocabulary tokens and creates game examples
+│   └── train.py                  # Training entry point (currently WIP)
+├── data/
+│   ├── vocab.txt                 # Move and metadata vocabulary
+│   ├── raw/                      # Downloaded PGN dumps (ignored by Git)
+│   └── processed/                # Token files, offsets, and metadata
+├── img/                          # README and web artwork
+│   ├── Icon.png                  # NanoChess logo
+│   └── Web.png                   # Chessboard preview
+├── pyproject.toml                # Project metadata and dependencies
+├── uv.lock                       # Locked dependency versions
+└── README.md                     # Project documentation
 ```
