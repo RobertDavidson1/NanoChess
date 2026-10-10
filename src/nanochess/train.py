@@ -52,7 +52,7 @@ def validate(model, val_loader, device, max_length):
 
 
 def train_model(
-    batch_size: int = 16,
+    batch_size: int = 64,
     embed_dim: int = 64,
     n_attention_heads: int = 4,
     n_transform_layers: int = 2,
@@ -121,7 +121,7 @@ def train_model(
             optimizer.step()
             scheduler.step()
 
-            if step % 100 == 0:
+            if step % 1000 == 0:
                 print(f"epoch {epoch + 1} | step {step} | loss {loss.item():.4f}")
 
         val_loss = validate(model, val_loader, device, config.L)
