@@ -33,7 +33,7 @@ def parse(max_valid_games: int = 10_000_000):
 
 @app.command()
 def train(
-    batch_size: int = 16,
+    batch_size: int = 64,
     embed_dim: int = 64,
     n_atn: int = 4,
     n_transform: int = 2,
