@@ -1,7 +1,13 @@
 # WIP - NanoChess
 
 <div align="center">
-  <img src="img/image.png" alt="NanoChess" width="420" />
+  <img src="img/Icon.png" alt="NanoChess" width="420" />
+</div>
+
+---
+
+<div align="center">
+  <img src="img/Web.png" alt="NanoChess chessboard" width="700" />
 </div>
 
 NanoChess is an experiment in teaching a language model to play chess. Instead of feeding it natural language text, it learns directly from millions of Lichess games, representing moves as tokens and using metadata such as rating, colour, time control, and result to predict what comes next. The goal is a compact chess model that can eventually run privately and entirely in the browser, with no server required.
