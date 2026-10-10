@@ -32,9 +32,18 @@ def parse(max_valid_games: int = 10_000_000):
 
 
 @app.command()
-def train():
+def train(
+    batch_size: int = 16,
+    embed_dim: int = 64,
+    n_atn: int = 4,
+    n_transform: int = 2,
+):
     """Train the NanoChess transformer model"""
-    train_model()
+    try:
+        train_model(batch_size, embed_dim, n_atn, n_transform)
+    except (FileNotFoundError, ValueError) as e:
+        typer.echo(f"Error: {e}", err=True)
+        raise typer.Exit(code=1)
 
 
 @app.command()
