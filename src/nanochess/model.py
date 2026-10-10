@@ -56,6 +56,11 @@ class NanoChess(nn.Module):
 
         self.lm_head.weight = self.wte.weight
 
+        # Scale the embeddings, including the shared output weights, once at initialization.
+        with torch.no_grad():
+            self.wte.weight.mul_(0.02)
+            self.wpe.weight.mul_(0.02)
+
     def forward(self, x):
         T = x.shape[1]
         positions = torch.arange(T, device=x.device)
