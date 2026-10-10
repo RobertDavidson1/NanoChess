@@ -1,8 +1,12 @@
-# WIP - NanoChess
+<h1 align="center">
+  <a href="https://robertdavidson1.github.io/NanoChess/play/">
+    <img src="img/Icon.png" alt="NanoChess" width="700" />
+  </a>
+</h1>
 
-<div align="center">
-  <img src="img/Icon.png" alt="NanoChess" width="420" />
-</div>
+<p align="center">
+  <i>Train a language model to play chess.</i>
+</p>
 
 ---
 
