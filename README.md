@@ -4,7 +4,7 @@
   <img src="img/image.png" alt="NanoChess" width="420" />
 </div>
 
-NanoChess is a small GPT-style chess model trained on chess tokens rather than English text. Given a sequence, it predicts the most likely next token.
+NanoChess is an experiment in teaching a language model to play chess. Instead of feeding it natural language text, it learns directly from millions of Lichess games, representing moves as tokens and using metadata such as rating, colour, time control, and result—to predict what comes next. The goal is a compact chess model that can eventually run privately and entirely in the browser, with no server required.
 
 (WIP) Once trained, the model will be exported to ONNX so the browser can run inference entirely client-side. You can try the chessboard [here](https://robertdavidson1.github.io/NanoChess/play/).
 
